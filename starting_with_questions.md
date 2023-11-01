@@ -26,7 +26,7 @@ ORDER BY total_revenue DESC;<br>
 
 Answer:
 
-USA is the country with the highest revenue ($13,154.17), whereas San Francisco is the city with the highest revenue ($1,564.32)
+**USA is the country with the highest revenue ($13,154.17), whereas San Francisco is the city with the highest revenue ($1,564.32)**
 
 
 
@@ -52,10 +52,11 @@ WHERE 	productquantity IS NOT NULL AND transactions IS NOT NULL<br>
 GROUP BY 1<br>
 ORDER BY 2 DESC;<br>
 
-Answer: <br><br>
-Note: I used the column 'product quantity' from the 'all_sessions' table.<br><br>
+Answer:
+
+**Note: I used the column 'product quantity' from the 'all_sessions' table.<br><br>
 Country: USA with an average product quantity of 7.44<br><br>
-City: Atlanta with 4.00
+City: Atlanta with 4.00**
 
 
 
@@ -78,7 +79,7 @@ ORDER BY 4, 3 DESC;
 
 Answer:
 
-'Nest-USA' is the number 1 category in the top 3 countries: USA, Israel & Australia.
+**'Nest-USA' is the number 1 category in the top 3 countries: USA, Israel & Australia.**
 
 
 
@@ -99,7 +100,7 @@ ORDER BY 4,3 DESC;
 
 Answer:
 
-Most popular products are thermostats, cameras, and smoke alarms.
+**Most popular products are thermostats, cameras, and smoke alarms.**
 
 
 
@@ -142,9 +143,9 @@ ORDER BY 2 DESC;
 
 Answer:
 
-The United States is the country with the highest level of transaction revenues with over 92%
+**The United States is the country with the highest level of transaction revenues with over 92%**
 
-San Francisco is the city with the highest level of transaction revenues with 10.95%
+**San Francisco is the city with the highest level of transaction revenues with 10.95%**
 
 
 
