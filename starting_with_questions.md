@@ -6,10 +6,27 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
+-- Country
 
+SELECT 	country, 
+		SUM(totaltransactionrevenuedivided) AS total_revenue
+FROM 	all_sessions
+WHERE 	totaltransactionrevenuedivided IS NOT NULL
+GROUP BY country
+ORDER BY total_revenue DESC;
+
+-- City
+
+SELECT 	city, 
+		SUM(totaltransactionrevenuedivided) AS total_revenue
+FROM 	all_sessions
+WHERE 	totaltransactionrevenuedivided IS NOT NULL
+GROUP BY city
+ORDER BY total_revenue DESC;
 
 Answer:
 
+USA is the country with the highest revenue ($13,154.17), whereas San Francisco is the city with the highest revenue ($1,564.32)
 
 
 
