@@ -9,7 +9,7 @@ SQL Queries:
 -- Country
 
 SELECT 	country, <br>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+<p style="text-indent: 20px;">SUM(totaltransactionrevenuedivided) AS total_revenue<br>
 FROM 	all_sessions<br>
 WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
 GROUP BY country<br>
