@@ -9,7 +9,7 @@ SQL Queries:
 -- Country
 
 SELECT 	country, <br>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
 FROM 	all_sessions<br>
 WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
 GROUP BY country<br>
@@ -17,12 +17,12 @@ ORDER BY total_revenue DESC;<br>
 
 -- City
 
-SELECT 	city, 
-	SUM(totaltransactionrevenuedivided) AS total_revenue
-FROM 	all_sessions
-WHERE 	totaltransactionrevenuedivided IS NOT NULL
-GROUP BY city
-ORDER BY total_revenue DESC;
+SELECT 	city, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+FROM 	all_sessions<br>
+WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
+GROUP BY city<br>
+ORDER BY total_revenue DESC;<br>
 
 Answer:
 
