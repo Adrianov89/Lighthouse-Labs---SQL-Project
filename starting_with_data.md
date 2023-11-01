@@ -1,8 +1,16 @@
 Question 1: 
 
+**What's the dataset date range?**
+
 SQL Queries:
 
+SELECT 	MIN(date), 
+		MAX(date)
+FROM 	all_sessions;
+
 Answer: 
+
+**August 01st, 2016 - August 01st, 2017**
 
 
 
