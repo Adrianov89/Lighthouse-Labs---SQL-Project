@@ -6,7 +6,7 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
--- Country<br>
+**-- Country**
 
 SELECT 	country, <br>
 SUM(totaltransactionrevenuedivided) AS total_revenue<br>
@@ -15,7 +15,7 @@ WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
 GROUP BY country<br>
 ORDER BY total_revenue DESC;<br>
 
--- City<br>
+**-- City**
 
 SELECT 	city, <br>
 SUM(totaltransactionrevenuedivided) AS total_revenue<br>
@@ -35,7 +35,7 @@ USA is the country with the highest revenue ($13,154.17), whereas San Francisco 
 
 SQL Queries:
 
--- Country: <br>
+**-- Country:**
 
 SELECT 	country, AVG(productquantity) <br>
 FROM 	all_sessions <br>
@@ -44,7 +44,8 @@ GROUP BY 1<br>
 ORDER BY 2 DESC;<br><br>
 
 
-City: <br>
+**-- City:**
+
 SELECT 	city, AVG(productquantity) <br>
 FROM 	all_sessions <br>
 WHERE 	productquantity IS NOT NULL AND transactions IS NOT NULL<br>
@@ -65,11 +66,19 @@ City: Atlanta with 4.00
 
 SQL Queries:
 
+**-- Categories:**
+
+SELECT 	country, v2productcategory,	SUM(totaltransactionrevenuedivided), <br>
+		RANK() OVER(PARTITION BY country ORDER BY SUM(totaltransactionrevenuedivided)DESC)<br>
+FROM 	all_sessions<br>
+WHERE totaltransactionrevenuedivided IS NOT NULL<br>
+GROUP BY 1,2<br>
+ORDER BY 4, 3 DESC;
 
 
 Answer:
 
-
+'Nest-USA' is the number 1 category in the top 3 countries: USA, Israel & Australia.
 
 
 
@@ -78,10 +87,19 @@ Answer:
 
 SQL Queries:
 
+**-- Products:**
+
+SELECT 	country, v2productname,	SUM(totaltransactionrevenuedivided), <br>
+		RANK() OVER(PARTITION BY country ORDER BY SUM(totaltransactionrevenuedivided)DESC)<br>
+FROM 	all_sessions<br>
+WHERE totaltransactionrevenuedivided IS NOT NULL<br>
+GROUP BY 1,2<br>
+ORDER BY 4,3 DESC;
 
 
 Answer:
 
+Most popular products are thermostats, cameras, and smoke alarms.
 
 
 
@@ -90,11 +108,43 @@ Answer:
 
 SQL Queries:
 
+**-- Country:**
 
+WITH cte AS <br>
+( <br>
+	SELECT 	SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+	FROM 	all_sessions<br>
+)
+
+SELECT 	country, <br>
+		SUM(totaltransactionrevenuedivided)/total_revenue*100 AS "% Revenue"<br>
+FROM 	all_sessions<br>
+CROSS JOIN cte<br>
+WHERE totaltransactionrevenuedivided IS NOT NULL<br>
+GROUP BY country, total_revenue<br>
+ORDER BY 2 DESC;
+
+**-- City:**
+
+WITH cte AS <br>
+( <br>
+	SELECT 	SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+	FROM 	all_sessions<br>
+)
+
+SELECT 	city, <br>
+		SUM(totaltransactionrevenuedivided)/total_revenue*100 AS "% Revenue"<br>
+FROM 	all_sessions<br>
+CROSS JOIN cte<br>
+WHERE 	totaltransactionrevenuedivided IS NOT NULL AND city != 'not available in demo dataset'<br>
+GROUP BY city, total_revenue<br>
+ORDER BY 2 DESC;
 
 Answer:
 
+The United States is the country with the highest level of transaction revenues with over 92%
 
+San Francisco is the city with the highest level of transaction revenues with 10.95%
 
 
 
