@@ -6,19 +6,19 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
--- Country
+-- Country<br>
 
 SELECT 	country, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+SUM(totaltransactionrevenuedivided) AS total_revenue<br>
 FROM 	all_sessions<br>
 WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
 GROUP BY country<br>
 ORDER BY total_revenue DESC;<br>
 
--- City
+-- City<br>
 
 SELECT 	city, <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+SUM(totaltransactionrevenuedivided) AS total_revenue<br>
 FROM 	all_sessions<br>
 WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
 GROUP BY city<br>
@@ -35,9 +35,26 @@ USA is the country with the highest revenue ($13,154.17), whereas San Francisco 
 
 SQL Queries:
 
+-- Country: <br>
+
+SELECT 	country, AVG(productquantity) <br>
+FROM 	all_sessions <br>
+WHERE 	productquantity IS NOT NULL AND transactions IS NOT NULL<br>
+GROUP BY 1<br>
+ORDER BY 2 DESC;<br><br>
 
 
-Answer:
+City: <br>
+SELECT 	city, AVG(productquantity) <br>
+FROM 	all_sessions <br>
+WHERE 	productquantity IS NOT NULL AND transactions IS NOT NULL<br>
+GROUP BY 1<br>
+ORDER BY 2 DESC;<br>
+
+Answer: <br><br>
+Note: I used the column 'product quantity' from the 'all_sessions' table.<br><br>
+Country: USA with an average product quantity of 7.44<br><br>
+City: Atlanta with 4.00
 
 
 
