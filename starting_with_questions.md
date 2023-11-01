@@ -8,17 +8,17 @@ SQL Queries:
 
 -- Country
 
-SELECT 	country, 
-		SUM(totaltransactionrevenuedivided) AS total_revenue
-FROM 	all_sessions
-WHERE 	totaltransactionrevenuedivided IS NOT NULL
-GROUP BY country
-ORDER BY total_revenue DESC;
+SELECT 	country, <br>
+	SUM(totaltransactionrevenuedivided) AS total_revenue<br>
+FROM 	all_sessions<br>
+WHERE 	totaltransactionrevenuedivided IS NOT NULL<br>
+GROUP BY country<br>
+ORDER BY total_revenue DESC;<br>
 
 -- City
 
 SELECT 	city, 
-		SUM(totaltransactionrevenuedivided) AS total_revenue
+	SUM(totaltransactionrevenuedivided) AS total_revenue
 FROM 	all_sessions
 WHERE 	totaltransactionrevenuedivided IS NOT NULL
 GROUP BY city
